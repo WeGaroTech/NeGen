@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEGen</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <header class="top-header">
+        <div class="site-name">NEGen</div>
+        <h5 class="gen">North-East Generative AI</h5>
+    </header>
+
+    <main>
+        <section id="homeSection">
+        <section class="welcome-section">
+            <h1>Welcome to NEGen</h1>
+            <p>Select a mode to get started</p>
+        </section>
+
+        <section class="modes-section">
+            <div class="mode-card" id="governmentCard">
+               <div class="icon">🏛️</div>
+               <h3>Government</h3>
+               <p>Explore government schemes and welfare promgrams</p>
+            </div>
+            
+            <div class="mode-card" id="educationCard">
+                <div class="icon">🎓</div>
+                <h3>Education</h3>
+                <p>Get career guidance and learning pathways</p>
+            </div>
+
+            <div class="mode-card" id="healthCard">
+                <div class="icon">❤️</div>
+                <h3>Health</h3>
+                <p>Health awareness and basic information</p>
+            </div>
+        </section>
+        </section>
+
+        <section id="governmentSection" class="hidden">
+            <div class="back-wrapper">
+            <button id="backButton">⬅️ Back to modes</button> 
+            </div>
+            <h2>Government Schemes</h2>
+
+            <div class="form-box">
+                <lable for="stateSelect">Select State</lable>
+                <select id="stateSelect">
+                <option value="" selected disabled>--Select State--</option>
+                <option value="meghalaya">Meghalaya</option>
+                <option value="assam">Assam</option>
+                </select>
+
+                <div id="schemesContainer" class="hidden"></div>
+            </div>
+        </section>
+
+        <section id="educationSection" class="hidden">
+            <div class="back-wrapper">
+                <button id="backEducation">⬅️ Back to modes</button>
+            </div>
+
+            <h2>Education Program</h2>
+
+            <div class="form-box">
+                <label for="eduStateSelect">Select State</label>
+
+                <select id="eduStateSelect">
+                    <option value="" selected disabled>--Select State</option>
+                    <option value="meghalaya">Meghalaya</option>
+                    <option value="assam">Assam</option>
+                </select>
+                    <div id="eduSchemesContainer" class="hidden"></div>
+            </div>
+        </section>
+
+        <section id="healthSection" class="hidden">
+            <div class="back-wrapper">
+                <button id="backHealth">⬅️ Back to modes</button>
+            </div>
+
+            <h2>Health Updates</h2>
+
+            <div class="form-box">
+                <label for="healthStateSelect">Select State</label>
+
+                <select id="healthStateSelect">
+                    <option value="" selected disabled>--Select State</option>
+                    <option value="meghalaya">Meghalaya</option>
+                    <option value="assam">Assam</option>
+                </select>
+                    <div id="healthSchemesContainer" class="hidden"></div>
+            </div>
+        </section>
+
+
+    </main>
+    <script src="js/app.js"></script>
+</body>
+</html>

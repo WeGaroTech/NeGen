@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111;
+}
+
+/* Header */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.site-name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.gen {
+    font-size: 13px;
+    color: #666;
+}
+
+.end-chat {
+    padding: 6px 14px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+/* Layout */
+.chat-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 70px);
+}
+
+/* Scheme Info */
+.scheme-info {
+    padding: 20px 24px;
+    border-bottom: 1px solid #eee;
+}
+
+.scheme-info h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.scheme-info p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Chat Area */
+.chat-area {
+    flex: 1;
+    padding: 20px 24px;
+    overflow-y: auto;
+    background: #fafafa;
+}
+
+/* Messages */
+.message {
+    display: flex;
+    margin-bottom: 14px;
+}
+
+.message.bot {
+    align-items: flex-start;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.bot-icon {
+    margin-right: 8px;
+}
+
+.bubble {
+    max-width: 70%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.bot .bubble {
+    background: #f0f0f0;
+}
+
+.user .bubble {
+    background: #1a9c73;
+    color: #fff;
+}
+
+/* Input */
+.chat-input {
+    display: flex;
+    padding: 14px 24px;
+    border-top: 1px solid #e0e0e0;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.chat-input button {
+    padding: 10px 18px;
+    border: none;
+    background: #1a9c73;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+}
