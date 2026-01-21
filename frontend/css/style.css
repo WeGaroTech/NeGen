@@ -101,7 +101,7 @@ body {
 
 #backButton {
     margin: 20px;
-    padding: 0px 24px;
+    padding: 5px 10px;
     border: 1px solid #ccc;
     background: #fff;
     cursor: pointer;
@@ -163,10 +163,9 @@ body {
 }
 
 /* Back buttons */
-#backEducation,
-#backHealth {
+#backEducation{
     margin: 20px;
-    padding: 0px 24px;
+    padding: 5px 10px;
     border: 1px solid #ccc;
     background: #fff;
     cursor: pointer;
@@ -193,7 +192,7 @@ body {
 /* Health back button */
 #backHealth {
     margin: 20px;
-    padding: 0px 24px;
+    padding: 5px 10px;
     border: 1px solid #ccc;
     background: #fff;
     cursor: pointer;
