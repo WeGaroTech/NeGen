@@ -1,0 +1,70 @@
+{
+  "meghalaya": {
+    "education": [
+      {
+        "id": "edu_meg_001",
+        "title": "CM’s Scholarship Scheme",
+        "description": "A fixed annual scholarship of ₹6,000 provided to students from Class XI up to PhD level with no income ceiling."
+      },
+      {
+        "id": "edu_meg_002",
+        "title": "Meghalaya Post-Matric Scholarship",
+        "description": "Financial aid for SC/ST/OBC students in Class 11 and above, covering tuition fees and monthly maintenance allowances."
+      },
+      {
+        "id": "edu_meg_003",
+        "title": "Free Studentship Scheme",
+        "description": "Covers tuition fees for students from Class 11 through Degree levels who are not receiving other central scholarships."
+      },
+      {
+        "id": "edu_meg_004",
+        "title": "Border Areas Scholarship",
+        "description": "Specialized grants for SC/ST students residing in notified border areas to support post-matric studies."
+      }
+    ],
+    "health": [
+      {
+        "id": "health_meg_001",
+        "title": "Megha Health Insurance Scheme (MHIS VI)",
+        "description": "Universal health coverage providing up to ₹5.3 Lakhs per family annually for secondary and tertiary hospitalisation."
+      },
+      {
+        "id": "health_meg_002",
+        "title": "CM Care+ Scheme",
+        "description": "A top-up scheme providing additional financial assistance for high-end critical care treatments exceeding standard MHIS limits."
+      },
+      {
+        "id": "health_meg_003",
+        "title": "Janani Shishu Suraksha Karyakaram (JSSK)",
+        "description": "Cashless delivery and care for pregnant women and sick newborns, including free drugs, diagnostics, and transport."
+      },
+      {
+        "id": "health_meg_004",
+        "title": "Rashtriya Bal Swasthya Karyakram (RBSK)",
+        "description": "Health screening and early intervention for children up to 18 years covering defects, diseases, and deficiencies."
+      }
+    ],
+    "government": [
+      {
+        "id": "gov_meg_001",
+        "title": "CM-Elevate (Regional Transport)",
+        "description": "Subsidies for commercial vehicles to improve rural-urban connectivity and promote transport entrepreneurship."
+      },
+      {
+        "id": "gov_meg_002",
+        "title": "PMAY-G (Meghalaya)",
+        "description": "Financial assistance of approximately ₹1.3 Lakh for rural families to convert 'kucha' houses into permanent homes."
+      },
+      {
+        "id": "gov_meg_003",
+        "title": "FOCUS+ (Livelihood)",
+        "description": "Direct financial grants to Producer Groups and individual farmers to scale up agricultural and allied activities."
+      },
+      {
+        "id": "gov_meg_004",
+        "title": "MGNREGA (Meghalaya)",
+        "description": "A flagship program guaranteeing 100 days of wage employment per financial year to every rural household."
+      }
+    ]
+  }
+}

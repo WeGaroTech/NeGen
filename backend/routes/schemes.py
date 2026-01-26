@@ -1,0 +1,29 @@
+from fastapi import APIRouter, Query, HTTPException
+import json
+
+router = APIRouter()
+
+
+def load_data():
+    with open("data/schemes.json", "r") as f:
+        return json.load(f)
+
+
+@router.get("/schemes")
+def get_schemes(
+    mode: str = Query(..., description="Mode: government/health/education"),
+    state: str = Query(..., description="State name"),
+):
+    mode = mode.strip().lower()
+    state = state.strip().lower()
+    valid_modes = {"government", "health", "education"}
+
+    data = load_data()
+    if state not in data:
+        raise HTTPException(status_code=404, detail="State not found")
+
+    if mode not in valid_modes:
+        raise HTTPException(
+            status_code=400, detail=f"Invalid mode, select from {valid_modes}"
+        )
+    return data[state][mode]
