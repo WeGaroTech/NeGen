@@ -1,146 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AI-powered platform for Northeast India government schemes and services">
-    <title>NEGen - North East Generative AI</title>
+    <title>NEGen</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css" rel="stylesheet" />
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
 </head>
-
 <body>
-
+    
     <header class="top-header">
-        <div>
-            <div class="site-name">NEGen</div>
-            <div class="gen">North-East Generative AI Platform</div>
-        </div>
-
+        <div class="site-name">NEGen</div>
+        <h5 class="gen">North-East Generative AI</h5>
     </header>
 
     <main>
         <section id="homeSection">
-            <section class="welcome-section">
-                <h1>Welcome to NEGen</h1>
-                <p>Your intelligent gateway to Northeast India's government schemes, educational programs, and
-                    healthcare services - all powered by advanced AI technology</p>
-            </section>
+        <section class="welcome-section">
+            <h1>Welcome to NEGen</h1>
+            <p>Select a mode to get started</p>
+        </section>
 
-            <section class="modes-section">
-                <div class="mode-card" id="governmentCard">
-                    <div class="icon"><i class="ri-government-fill"></i></div>
-                    <h3>Government</h3>
-                    <p>Explore comprehensive government schemes, policies, and welfare programs across Northeast states
-                    </p>
-                </div>
+        <section class="modes-section">
+            <div class="mode-card" id="governmentCard">
+               <div class="icon"><i class="ri-government-fill"></i></div>
+               <h3>Government</h3>
+               <p>Explore government schemes and welfare promgrams</p>
+            </div>
+            
+            <div class="mode-card" id="educationCard">
+                <div class="icon"><i class="ri-book-2-fill"></i></div>
+                <h3>Education</h3>
+                <p>Get career guidance and learning pathways</p>
+            </div>
 
-                <div class="mode-card" id="educationCard">
-                    <div class="icon"><i class="ri-book-2-fill"></i></div>
-                    <h3>Education</h3>
-                    <p>Access scholarships, skill development courses, and educational initiatives for students</p>
-                </div>
-
-                <div class="mode-card" id="healthCard">
-                    <div class="icon"><i class="ri-hospital-fill"></i></div>
-                    <h3>Health</h3>
-                    <p>Discover healthcare programs, insurance schemes, and medical assistance initiatives</p>
-                </div>
-            </section>
+            <div class="mode-card" id="healthCard">
+                <div class="icon"><i class="ri-hospital-fill"></i></div>
+                <h3>Health</h3>
+                <p>Health awareness and basic information</p>
+            </div>
+        </section>
         </section>
 
         <section id="governmentSection" class="hidden">
-            <div class="section-container">
-                <button class="back-button" id="backButton">Back to Home</button>
-                <h2
-                    style="font-family: 'Poppins', sans-serif; font-size: 32px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px; letter-spacing: -0.5px;">
-                    Government Schemes</h2>
-                <p style="color: var(--text-secondary); font-size: 18px; margin-bottom: 32px; max-width: 600px;">Select
-                    your state to explore comprehensive government schemes and welfare programs tailored for Northeast
-                    India</p>
+            <div class="back-wrapper">
+            <button id="backButton"><i class="ri-arrow-left-circle-line"></i> Back to modes</button> 
+            </div>
+            <h2>Government Schemes</h2>
 
-                <div class="form-box">
-                    <label class="select-label" for="stateSelect">Choose Your State</label>
-                    <select id="stateSelect" class="custom-select">
-                        <option value="" selected disabled>-- Select State --</option>
-                        <option value="meghalaya">Meghalaya</option>
-                        <option value="assam">Assam</option>
-                    </select>
-                    <div id="schemesContainer" class="schemes-container hidden"></div>
-                </div>
+            <div class="form-box">
+                <lable for="stateSelect">Select State</lable>
+                <select id="stateSelect">
+                <option value="" selected disabled>--Select State--</option>
+                <option value="meghalaya">Meghalaya</option>
+                <option value="assam">Assam</option>
+                </select>
+
+                <div id="schemesContainer" class="hidden"></div>
             </div>
         </section>
 
         <section id="educationSection" class="hidden">
-            <div class="section-container">
-                <button class="back-button" id="backEducation">Back to Home</button>
-                <h2
-                    style="font-family: 'Poppins', sans-serif; font-size: 32px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px; letter-spacing: -0.5px;">
-                    Education Programs</h2>
-                <p style="color: var(--text-secondary); font-size: 18px; margin-bottom: 32px; max-width: 600px;">
-                    Discover scholarships, skill development courses, and educational initiatives designed to empower
-                    students across Northeast India</p>
+            <div class="back-wrapper">
+                <button id="backEducation"><i class="ri-arrow-left-circle-line"></i> Back to modes</button>
+            </div>
 
-                <div class="form-box">
-                    <label class="select-label" for="eduStateSelect">Choose Your State</label>
-                    <select id="eduStateSelect" class="custom-select">
-                        <option value="" selected disabled>-- Select State --</option>
-                        <option value="meghalaya">Meghalaya</option>
-                        <option value="assam">Assam</option>
-                    </select>
-                    <div id="eduSchemesContainer" class="schemes-container hidden"></div>
-                </div>
+            <h2>Education Program</h2>
+
+            <div class="form-box">
+                <label for="eduStateSelect">Select State</label>
+
+                <select id="eduStateSelect">
+                    <option value="" selected disabled>--Select State</option>
+                    <option value="meghalaya">Meghalaya</option>
+                    <option value="assam">Assam</option>
+                </select>
+                    <div id="eduSchemesContainer" class="hidden"></div>
             </div>
         </section>
 
         <section id="healthSection" class="hidden">
-            <div class="section-container">
-                <button class="back-button" id="backHealth">Back to Home</button>
-                <h2
-                    style="font-family: 'Poppins', sans-serif; font-size: 32px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px; letter-spacing: -0.5px;">
-                    Health Schemes</h2>
-                <p style="color: var(--text-secondary); font-size: 18px; margin-bottom: 32px; max-width: 600px;">Access
-                    healthcare programs, insurance schemes, and medical assistance initiatives for improved wellness
-                    across Northeast states</p>
+            <div class="back-wrapper">
+                <button id="backHealth"><i class="ri-arrow-left-circle-line"></i> Back to modes</button>
+            </div>
 
-                <div class="form-box">
-                    <label class="select-label" for="healthStateSelect">Choose Your State</label>
-                    <select id="healthStateSelect" class="custom-select">
-                        <option value="" selected disabled>-- Select State --</option>
-                        <option value="meghalaya">Meghalaya</option>
-                        <option value="assam">Assam</option>
-                    </select>
-                    <div id="healthSchemesContainer" class="schemes-container hidden"></div>
-                </div>
+            <h2>Health Updates</h2>
+
+            <div class="form-box">
+                <label for="healthStateSelect">Select State</label>
+
+                <select id="healthStateSelect">
+                    <option value="" selected disabled>--Select State</option>
+                    <option value="meghalaya">Meghalaya</option>
+                    <option value="assam">Assam</option>
+                </select>
+                    <div id="healthSchemesContainer" class="hidden"></div>
             </div>
         </section>
 
 
     </main>
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-content">
-            <h3>NEGen Platform</h3>
-            <p>Empowering Northeast India through AI-driven access to government schemes, educational programs, and
-                healthcare services. Bridging the digital divide with intelligent solutions.</p>
-
-            <div class="footer-links">
-                <a href="#" class="footer-link">About Us</a>
-                <a href="#" class="footer-link">Documentation</a>
-                <a href="#" class="footer-link">API Access</a>
-                <a href="#" class="footer-link">Contact Support</a>
-                <a href="#" class="footer-link">Privacy Policy</a>
-                <a href="#" class="footer-link">Terms of Service</a>
-            </div>
-
-            <div class="version-info">
-                NEGen v1.0.0 | © 2026 Northeast Generative AI Initiative
-            </div>
-        </div>
-    </footer>
-
     <script src="js/app.js"></script>
 </body>
-
 </html>

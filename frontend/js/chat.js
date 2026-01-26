@@ -76,7 +76,7 @@ function addBotMessage(text) {
     const msg = document.createElement("div");
     msg.className = "message bot";
     msg.innerHTML = `
-        <div class="bot-icon">🤖</div>
+        <span class="bot-icon">🤖</span>
         <div class="bubble">${text}</div>
     `;
     chatArea.appendChild(msg);
@@ -94,16 +94,9 @@ function sendMessage() {
 
     // TEMP AI RESPONSE 
     setTimeout(() => {
-        // Professional responses based on scheme type
-        const responses = {
-            government: "I can provide detailed information about eligibility criteria, application process, benefits, and documentation required for this government scheme.",
-            education: "I can help you understand scholarship requirements, course details, application deadlines, and career prospects related to this educational program.",
-            health: "I can assist with information about healthcare coverage, eligibility, required documents, and how to access benefits under this health scheme."
-        };
-
-        const response = responses[selectedMode] || "I can provide comprehensive information about this scheme including benefits, eligibility, application process, and required documentation.";
-
-        addBotMessage(response);
+        addBotMessage(
+            "This is a demo response. The AI backend will generate answers based on the selected scheme."
+        );
     }, 700);
 }
 
@@ -134,7 +127,7 @@ if (endChatBtn) {
     });
 }
 
-// Initial Bot Response
+//Bot resp.
 addBotMessage(
-    `Welcome! I'm your AI assistant for the ${selectedScheme}. I can help you with:\n\n• Eligibility requirements\n• Application process\n• Required documents\n• Benefits and coverage\n• Contact information\n\nWhat would you like to know?`
+    "Hello! You can ask me anything about this scheme."
 );

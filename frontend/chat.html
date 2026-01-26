@@ -1,56 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>NEGen - Scheme Chat</title>
+    <title>NEGen – Scheme Chat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Chat with AI about government schemes, education programs, and health initiatives">
-
+    
     <link rel="stylesheet" href="css/chat.css">
 </head>
-
 <body>
 
-    <header class="top-header">
-        <div>
-            <div class="site-name">NEGen</div>
-            <div class="gen">North-East Generative AI Platform</div>
-        </div>
+<header class="top-header">
+    <div>
+        <div class="site-name">NEGen</div>
+        <div class="gen">North-East Generative AI</div>
+    </div>
 
-        <button class="end-chat" id="endChatBtn">End Chat</button>
-    </header>
+    <button class="end-chat" id="endChatBtn">End Chat</button>
+</header>
 
-    <main class="chat-wrapper">
+<main class="chat-wrapper">
 
-        <section class="scheme-info">
-            <h2 id="schemeTitle">Scheme Name</h2>
-            <p id="schemeDescription">
-                Short description about the selected scheme will appear here.
-            </p>
-        </section>
+    
+    <section class="scheme-info">
+        <h2 id="schemeTitle">Scheme Name</h2>
+        <p id="schemeDescription">
+            Short description about the selected scheme will appear here.
+        </p>
+    </section>
 
-        <section class="chat-area" id="chatArea">
-            <div class="message bot">
-                <div class="bot-icon">🤖</div>
-                <div class="bubble">
-                    Hello! I'm your AI assistant for this scheme. How can I help you today?
-                </div>
+    <section class="chat-area" id="chatArea">
+        <div class="message bot">
+            <span class="bot-icon">🤖</span>
+            <div class="bubble">
+                How can I help you with this scheme?
             </div>
-        </section>
+        </div>
+    </section>
 
+   
+    <section class="chat-input">
+        <input 
+            type="text" 
+            id="userInput" 
+            placeholder="Type your message..."
+        />
+        <button id="sendBtn">Send</button>
+    </section>
 
-        <section class="chat-input">
-            <input type="text" id="userInput" placeholder="Type your message..." />
-            <button id="sendBtn">
-                Send <i class="ri-send-plane-fill"></i>
-            </button>
-        </section>
+</main>
 
-    </main>
-
-    <script src="js/chat.js"></script>
+<script src="js/chat.js"></script>
 </body>
-
 </html>
