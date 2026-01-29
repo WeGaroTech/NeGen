@@ -5,11 +5,7 @@ from services.translation.base import BaseTranslator
 
 client = genai.Client(api_key=GEMINI_KEY)
 
-
-class geminiTranslator(BaseTranslator):
-    # function to translate text to english
-    def translate_to_english(self, text: str) -> str:
-        GARO_TO_ENGLISH_SYSTEM_INSTRUCTION = """ You are an expert translator specializing in translating Garo (A·chik) to English.
+GARO_TO_ENGLISH_SYSTEM_INSTRUCTION = """ You are an expert translator specializing in translating Garo (A·chik) to English.
 
 CRITICAL RULES:
 1. Return ONLY the English translation - no explanations, no Garo text repetition, no commentary
@@ -30,17 +26,8 @@ TRANSLATION APPROACH:
 - Preserve any emotional or stylistic elements from the original
 
 OUTPUT: Return ONLY the English translation."""
-        response = client.models.generate_content(
-            model=GEMINI_MODEL,
-            config={"system_instruction": GARO_TO_ENGLISH_SYSTEM_INSTRUCTION},
-            contents=[{"role": "user", "parts": [{"text": text}]}],
-        )
 
-        return response.text
-
-    # function to translate text to local language
-    def translate_to_local(self, text: str) -> str:
-        ENGLISH_TO_GARO_SYSTEM_INSTRUCTION = """You are an expert translator specializing in translating English to Garo (A·chik).
+ENGLISH_TO_GARO_SYSTEM_INSTRUCTION = """You are an expert translator specializing in translating English to Garo (A·chik).
 
 CRITICAL RULES:
 1. Return ONLY the Garo (A·chik) translation - no explanations, no English text repetition, no commentary
@@ -68,6 +55,20 @@ ORTHOGRAPHY:
 - Use proper diacritics and special characters
 
 OUTPUT: Return ONLY the Garo (A·chik) translation."""
+
+
+class geminiTranslator(BaseTranslator):
+    # function to translate text to english
+    def translate_to_english(self, text: str) -> str:
+        response = client.models.generate_content(
+            model=GEMINI_MODEL,
+            config={"system_instruction": GARO_TO_ENGLISH_SYSTEM_INSTRUCTION},
+            contents=[{"role": "user", "parts": [{"text": text}]}],
+        )
+        return response.text
+
+    # function to translate text to local language
+    def translate_to_local(self, text: str) -> str:
         response = client.models.generate_content(
             model=GEMINI_MODEL,
             config={"system_instruction": ENGLISH_TO_GARO_SYSTEM_INSTRUCTION},

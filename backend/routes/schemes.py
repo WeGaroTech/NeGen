@@ -1,3 +1,4 @@
+import asyncio
 import json
 
 from fastapi import APIRouter, HTTPException, Query
@@ -14,7 +15,7 @@ data = load_data()
 
 
 @router.get("/schemes")
-def get_schemes(
+async def get_schemes(
     mode: str = Query(..., description="Mode: government/health/education"),
     state: str = Query(..., description="State name"),
 ):
