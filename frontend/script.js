@@ -1,8 +1,8 @@
 // ============================================
 // CONFIGURATION
 // ============================================
-const API_BASE_URL = 'http://localhost:8000'; 
-
+// const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = 'https://roy-cantharidal-idalia.ngrok-free.dev'; 
 const API_ENDPOINTS = {
     getSchemes: '/api/schemes',
     sendMessage: '/api/chat'
@@ -41,7 +41,7 @@ function selectMode(mode) {
 // ============================================
 async function handleStateSelect(mode) {
     let stateSelectId, schemeListId;
-    
+
     if (mode === 'government') {
         stateSelectId = 'govStateSelect';
         schemeListId = 'govSchemeList';
@@ -62,7 +62,16 @@ async function handleStateSelect(mode) {
         schemeList.classList.add('active');
 
         try {
-            const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.getSchemes}?mode=${mode}&state=${stateValue}`);
+            //const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.getSchemes}?mode=${mode}&state=${stateValue}`);
+            const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.getSchemes}?mode=${mode}&state=${stateValue}`,
+                {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "ngrok-skip-browser-warning": "true"
+                    }
+                }
+            );
             const schemes = await response.json();
 
             schemeList.innerHTML = '';
@@ -106,11 +115,6 @@ function startChat(mode, chatType, context, schemeId = null, stateValue = null) 
     document.getElementById('chatTitle').textContent = context;
     document.getElementById('chatMessages').innerHTML = '';
 
-    if (mode === 'health') {
-        document.getElementById('healthDisclaimer').style.display = 'block';
-    } else {
-        document.getElementById('healthDisclaimer').style.display = 'none';
-    }
 
     if (chatType === 'scheme_chat') {
         const welcomeMsg = `How can I help you with the ${context}?`;
@@ -129,7 +133,7 @@ function goBack() {
     document.getElementById('govSchemeList').classList.remove('active');
     document.getElementById('eduSchemeList').classList.remove('active');
     document.getElementById('healthSchemeList').classList.remove('active');
-    
+
     document.getElementById('govStateSelect').value = '';
     document.getElementById('eduStateSelect').value = '';
     document.getElementById('healthStateSelect').value = '';
@@ -154,7 +158,7 @@ function addMessage(sender, text) {
 
     const content = document.createElement('div');
     content.className = 'message-content';
-    
+
     if (sender === 'ai') {
         content.innerHTML = marked.parse(text);
     } else {
@@ -175,14 +179,14 @@ function addLoadingMessage() {
     const loadingDiv = document.createElement('div');
     loadingDiv.className = 'message ai';
     loadingDiv.id = 'loading-message';
-    
+
     const content = document.createElement('div');
     content.className = 'message-content loading-dots';
     content.innerHTML = '<span></span><span></span><span></span>';
-    
+
     loadingDiv.appendChild(content);
     messagesDiv.appendChild(loadingDiv);
-    
+
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
@@ -202,7 +206,7 @@ function removeLoadingMessage() {
 function toggleSendButton(disabled) {
     const sendButton = document.querySelector('.input-container button');
     const input = document.getElementById('messageInput');
-    
+
     sendButton.disabled = disabled;
     input.disabled = disabled;
 }
@@ -213,7 +217,7 @@ function toggleSendButton(disabled) {
 function sendMessage() {
     // Prevent sending if already loading
     if (state.isLoading) return;
-    
+
     const input = document.getElementById('messageInput');
     const message = input.value.trim();
 
@@ -238,7 +242,7 @@ function sendMessage() {
 async function sendMessageToBackend(userMessage) {
     try {
         let payload;
-        
+
         if (state.chatType === 'general_chat' && state.currentMode === null) {
             payload = {
                 chat_type: 'general_chat',
@@ -261,6 +265,7 @@ async function sendMessageToBackend(userMessage) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                "ngrok-skip-browser-warning": "true"
             },
             body: JSON.stringify(payload)
         });

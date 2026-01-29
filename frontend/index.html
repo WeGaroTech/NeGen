@@ -1,131 +1,126 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEGen - North-East Generative AI</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css" rel="stylesheet" />
-    <!-- Marked.js for Markdown rendering -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEGen - North-East Generative AI</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css" rel="stylesheet" />
+  <!-- Marked.js for Markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
-    <div class="header">
-        <div>
-            <div class="logo">NEGen</div>
-            <div class="subtitle">North-East Generative AI</div>
+  <div class="header">
+    <div>
+      <div class="logo">NEGen</div>
+      <div class="subtitle">North-East Generative AI</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Mode Selection -->
+    <div class="mode-selection" id="modeSelection">
+      <h1>Welcome to NEGen</h1>
+
+      <!-- General Chat Option - On Homepage -->
+      <div class="general-chat-home">
+        <div class="general-chat-card" onclick="startChat(null, 'general_chat', 'Ask NEGen', null, null)">
+          <div class="chat-icon"><i class="ri-chat-3-line"></i></div>
+          <h3>Ask NEGen Anything</h3>
+          <p>Get help with government schemes, education, health, and more</p>
         </div>
+      </div>
+
+      <p class="or-divider">Explore by Category</p>
+
+      <div class="mode-cards">
+        <div class="mode-card" onclick="selectMode('government')">
+          <div class="mode-icon"><i class="ri-government-line"></i></div>
+          <h3>Government</h3>
+          <p>Explore government schemes and welfare programs</p>
+        </div>
+        <div class="mode-card" onclick="selectMode('education')">
+          <div class="mode-icon"><i class="ri-graduation-cap-line"></i></div>
+          <h3>Education</h3>
+          <p>Explore scholarships and student support schemes</p>
+        </div>
+        <div class="mode-card" onclick="selectMode('health')">
+          <div class="mode-icon"><i class="ri-hospital-line"></i></div>
+          <h3>Health</h3>
+          <p>Explore health schemes and medical support programs</p>
+        </div>
+      </div>
     </div>
 
-    <div class="container">
-        <!-- Mode Selection -->
-        <div class="mode-selection" id="modeSelection">
-            <h1>Welcome to NEGen</h1>
-            
-            <!-- General Chat Option - On Homepage -->
-            <div class="general-chat-home">
-                <div class="general-chat-card" onclick="startChat(null, 'general_chat', 'Ask NEGen', null, null)">
-                    <div class="chat-icon"><i class="ri-chat-3-line"></i></div>
-                    <h3>Ask NEGen Anything</h3>
-                    <p>Get help with government schemes, education, health, and more</p>
-                </div>
-            </div>
+    <!-- Government Sub-Selection -->
+    <div class="sub-selection" id="governmentSelection">
+      <button class="back-btn" onclick="goBack()">← Back to Home</button>
+      <h2>Government Schemes</h2>
 
-            <p class="or-divider">Explore by Category</p>
-            
-            <div class="mode-cards">
-                <div class="mode-card" onclick="selectMode('government')">
-                    <div class="mode-icon"><i class="ri-government-line"></i></div>
-                    <h3>Government</h3>
-                    <p>Explore government schemes and welfare programs</p>
-                </div>
-                <div class="mode-card" onclick="selectMode('education')">
-                    <div class="mode-icon"><i class="ri-graduation-cap-line"></i></div>
-                    <h3>Education</h3>
-                    <p>Get career guidance and learning pathways</p>
-                </div>
-                <div class="mode-card" onclick="selectMode('health')">
-                    <div class="mode-icon"><i class="ri-hospital-line"></i></div>
-                    <h3>Health</h3>
-                    <p>Health awareness and basic information</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Government Sub-Selection -->
-        <div class="sub-selection" id="governmentSelection">
-            <button class="back-btn" onclick="goBack()">← Back to Home</button>
-            <h2>Government Schemes</h2>
-
-            <div class="selection-box">
-                <label>Browse schemes by state</label>
-                <select id="govStateSelect" onchange="handleStateSelect('government')">
-                    <option value="">-- Select State --</option>
-                    <option value="meghalaya">Meghalaya</option>
-                </select>
-            </div>
-            <div class="scheme-list" id="govSchemeList">
-                <!-- Government schemes will be loaded here dynamically after state selection -->
-            </div>
-        </div>
-
-        <!-- Education Sub-Selection -->
-        <div class="sub-selection" id="educationSelection">
-            <button class="back-btn" onclick="goBack()">← Back to Home</button>
-            <h2>Education</h2>
-
-            <div class="selection-box">
-                <label>Browse schemes by state</label>
-                <select id="eduStateSelect" onchange="handleStateSelect('education')">
-                    <option value="">-- Select State --</option>
-                    <option value="meghalaya">Meghalaya</option>
-                </select>
-            </div>
-            <div class="scheme-list" id="eduSchemeList">
-                <!-- Education schemes will be loaded here dynamically -->
-            </div>
-        </div>
-
-        <!-- Health Sub-Selection -->
-        <div class="sub-selection" id="healthSelection">
-            <button class="back-btn" onclick="goBack()">← Back to Home</button>
-            <h2>Health</h2>
-
-            <div class="selection-box">
-                <label>Browse schemes by state</label>
-                <select id="healthStateSelect" onchange="handleStateSelect('health')">
-                    <option value="">-- Select State --</option>
-                    <option value="meghalaya">Meghalaya</option>
-                </select>
-            </div>
-            <div class="scheme-list" id="healthSchemeList">
-                <!-- Health schemes will be loaded here dynamically -->
-            </div>
-        </div>
-
-        <!-- Chat Interface -->
-        <div class="chat-interface" id="chatInterface">
-            <div class="chat-header">
-                <div class="chat-title" id="chatTitle">Chat</div>
-                <button class="back-btn" onclick="goBack()">End Chat</button>
-            </div>
-            <div class="disclaimer" id="healthDisclaimer" style="display: none;">
-                <i class="ri-alert-line"></i> This is for health awareness only, not medical diagnosis. Always consult a healthcare professional
-                for medical advice.
-            </div>
-            <div class="chat-messages" id="chatMessages"></div>
-            <div class="input-area">
-                <div class="input-container">
-                    <input type="text" id="messageInput" placeholder="Type your message..."
-                        onkeypress="handleKeyPress(event)">
-                    <button onclick="sendMessage()">Send</button>
-                </div>
-            </div>
-        </div>
+      <div class="selection-box">
+        <label>Browse schemes by state</label>
+        <select id="govStateSelect" onchange="handleStateSelect('government')">
+          <option value="">-- Select State --</option>
+          <option value="meghalaya">Meghalaya</option>
+        </select>
+      </div>
+      <div class="scheme-list" id="govSchemeList">
+        <!-- Government schemes will be loaded here dynamically after state selection -->
+      </div>
     </div>
-    <script src="script.js"></script>
+
+    <!-- Education Sub-Selection -->
+    <div class="sub-selection" id="educationSelection">
+      <button class="back-btn" onclick="goBack()">← Back to Home</button>
+      <h2>Education</h2>
+
+      <div class="selection-box">
+        <label>Browse schemes by state</label>
+        <select id="eduStateSelect" onchange="handleStateSelect('education')">
+          <option value="">-- Select State --</option>
+          <option value="meghalaya">Meghalaya</option>
+        </select>
+      </div>
+      <div class="scheme-list" id="eduSchemeList">
+        <!-- Education schemes will be loaded here dynamically -->
+      </div>
+    </div>
+
+    <!-- Health Sub-Selection -->
+    <div class="sub-selection" id="healthSelection">
+      <button class="back-btn" onclick="goBack()">← Back to Home</button>
+      <h2>Health</h2>
+
+      <div class="selection-box">
+        <label>Browse schemes by state</label>
+        <select id="healthStateSelect" onchange="handleStateSelect('health')">
+          <option value="">-- Select State --</option>
+          <option value="meghalaya">Meghalaya</option>
+        </select>
+      </div>
+      <div class="scheme-list" id="healthSchemeList">
+        <!-- Health schemes will be loaded here dynamically -->
+      </div>
+    </div>
+
+    <!-- Chat Interface -->
+    <div class="chat-interface" id="chatInterface">
+      <div class="chat-header">
+        <div class="chat-title" id="chatTitle">Chat</div>
+        <button class="back-btn" onclick="goBack()">End Chat</button>
+      </div>
+      <div class="chat-messages" id="chatMessages"></div>
+      <div class="input-area">
+        <div class="input-container">
+          <input type="text" id="messageInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)" />
+          <button onclick="sendMessage()">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 
 </html>
