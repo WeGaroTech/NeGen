@@ -1,5 +1,6 @@
-from fastapi import APIRouter, Query, HTTPException
 import json
+
+from fastapi import APIRouter, HTTPException, Query
 
 router = APIRouter()
 
@@ -7,6 +8,9 @@ router = APIRouter()
 def load_data():
     with open("data/schemes.json", "r") as f:
         return json.load(f)
+
+
+data = load_data()
 
 
 @router.get("/schemes")
@@ -18,7 +22,6 @@ def get_schemes(
     state = state.strip().lower()
     valid_modes = {"government", "health", "education"}
 
-    data = load_data()
     if state not in data:
         raise HTTPException(status_code=404, detail="State not found")
 

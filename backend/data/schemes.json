@@ -4,66 +4,167 @@
       {
         "id": "edu_meg_001",
         "title": "CM’s Scholarship Scheme",
-        "description": "A fixed annual scholarship of ₹6,000 provided to students from Class XI up to PhD level with no income ceiling."
+        "description": "A flagship annual scholarship for all domiciled students of Meghalaya from Class XI to PhD.",
+        "eligibility": "Permanent resident of Meghalaya; currently enrolled in Class XI up to PhD level (regular mode); no income ceiling.",
+        "benefits": "Annual financial grant of ₹6,000 directly transferred to the student's bank account.",
+        "documents": [
+          "Domicile Certificate",
+          "Bonafide Certificate from Institution",
+          "Previous year's Marksheet",
+          "Aadhaar Card",
+          "Bank Passbook Copy"
+        ]
       },
       {
         "id": "edu_meg_002",
         "title": "Meghalaya Post-Matric Scholarship",
-        "description": "Financial aid for SC/ST/OBC students in Class 11 and above, covering tuition fees and monthly maintenance allowances."
+        "description": "Central-state scholarship for SC/ST/OBC/EWS students pursuing higher education.",
+        "eligibility": "SC/ST/OBC/EWS category; Annual family income < ₹2.5 Lakhs; must have passed Class 10/12.",
+        "benefits": "Maintenance allowance (up to ₹1,200/month for hostellers) + Full reimbursement of compulsory tuition fees.",
+        "documents": [
+          "Caste Certificate",
+          "Income Certificate (issued by DC/SDO)",
+          "Marksheets of last exam",
+          "Aadhaar Card",
+          "Fee Receipt"
+        ]
       },
       {
         "id": "edu_meg_003",
         "title": "Free Studentship Scheme",
-        "description": "Covers tuition fees for students from Class 11 through Degree levels who are not receiving other central scholarships."
+        "description": "Assistance for tuition fees for students who are not receiving any other scholarships.",
+        "eligibility": "Permanent resident of Meghalaya; SC/ST/OBC students only; not receiving any other central/state scholarship.",
+        "benefits": "Direct reimbursement of tuition fees ranging from ₹1,105 to ₹2,235 depending on the course and stream.",
+        "documents": [
+          "Caste Certificate",
+          "Admission Proof",
+          "Mark-sheet of HSLC/HSSLC",
+          "Self-declaration of no other scholarship",
+          "Income Certificate"
+        ]
       },
       {
         "id": "edu_meg_004",
         "title": "Border Areas Scholarship",
-        "description": "Specialized grants for SC/ST students residing in notified border areas to support post-matric studies."
+        "description": "Financial support for students living in notified international border areas of the state.",
+        "eligibility": "Student's village must be in a notified Border Area; parents must not be in government service; studying up to Degree level.",
+        "benefits": "Annual stipend/subsidy to help with educational costs in economically distressed border regions.",
+        "documents": [
+          "Residential Certificate (confirming Border Area status)",
+          "Marksheets",
+          "Admission Letter",
+          "Voter ID of Parents",
+          "Bank Details"
+        ]
       }
     ],
     "health": [
       {
         "id": "health_meg_001",
         "title": "Megha Health Insurance Scheme (MHIS VI)",
-        "description": "Universal health coverage providing up to ₹5.3 Lakhs per family annually for secondary and tertiary hospitalisation."
+        "description": "Universal health insurance converged with Ayushman Bharat (PM-JAY).",
+        "eligibility": "All citizens of Meghalaya except central and state government employees.",
+        "benefits": "Cashless treatment up to ₹5.3 Lakhs per family per year at empaneled hospitals.",
+        "documents": [
+          "Voter ID (EPIC)",
+          "Aadhaar Card",
+          "Ration Card",
+          "MGNREGA Job Card (if any)",
+          "Birth Certificate (for minors)"
+        ]
       },
       {
         "id": "health_meg_002",
         "title": "CM Care+ Scheme",
-        "description": "A top-up scheme providing additional financial assistance for high-end critical care treatments exceeding standard MHIS limits."
+        "description": "A top-up scheme for critical care beyond the standard MHIS limits.",
+        "eligibility": "Residents of Meghalaya enrolled in MHIS whose treatment costs exceed the ₹5.3 Lakh limit.",
+        "benefits": "Additional financial aid for high-cost procedures like organ transplants and advanced cancer care.",
+        "documents": [
+          "MHIS Card",
+          "Medical Referral/Medical Board Certificate",
+          "Cost Estimate from Hospital",
+          "Identity Proof"
+        ]
       },
       {
         "id": "health_meg_003",
         "title": "Janani Shishu Suraksha Karyakaram (JSSK)",
-        "description": "Cashless delivery and care for pregnant women and sick newborns, including free drugs, diagnostics, and transport."
+        "description": "Zero out-of-pocket expense for delivery and neonatal care.",
+        "eligibility": "All pregnant women and sick newborns (up to 30 days) visiting government health facilities.",
+        "benefits": "Free delivery (Normal/C-Section), drugs, diagnostics, diet, and free transport from home and back.",
+        "documents": [
+          "Mother-Child Protection (MCP) Card",
+          "Identity Proof",
+          "Address Proof"
+        ]
       },
       {
         "id": "health_meg_004",
         "title": "Rashtriya Bal Swasthya Karyakram (RBSK)",
-        "description": "Health screening and early intervention for children up to 18 years covering defects, diseases, and deficiencies."
+        "description": "Child screening program covering the '4 Ds' (Defects, Diseases, Deficiencies, Developmental delays).",
+        "eligibility": "All children from birth up to 18 years of age.",
+        "benefits": "Free health screening and free management/treatment (including surgeries) for 32 identified health conditions.",
+        "documents": [
+          "School ID/Anganwadi Registration",
+          "Birth Certificate/Aadhaar",
+          "Medical records (if any)"
+        ]
       }
     ],
     "government": [
       {
         "id": "gov_meg_001",
-        "title": "CM-Elevate (Regional Transport)",
-        "description": "Subsidies for commercial vehicles to improve rural-urban connectivity and promote transport entrepreneurship."
+        "title": "CM-Elevate (Transport Scheme)",
+        "description": "Entrepreneurship program providing subsidies for commercial vehicles.",
+        "eligibility": "Permanent residents aged 18-58; must be individual entrepreneurs or registered/unregistered community groups.",
+        "benefits": "75% government subsidy on project cost; 5% entrepreneur contribution; 20% bank loan.",
+        "documents": [
+          "Aadhaar/Voter ID",
+          "Land Ownership/Lease Agreement",
+          "Bank Statement (6 months)",
+          "PAN Card",
+          "Registration Certificate (for groups)"
+        ]
       },
       {
         "id": "gov_meg_002",
         "title": "PMAY-G (Meghalaya)",
-        "description": "Financial assistance of approximately ₹1.3 Lakh for rural families to convert 'kucha' houses into permanent homes."
+        "description": "Housing scheme for rural families to build permanent homes.",
+        "eligibility": "Families living in kucha/dilapidated houses; listed in SECC 2011 or Awaas+ list; must not own a pucca house.",
+        "benefits": "Financial grant of approx ₹1.3 Lakh + ₹12,000 for toilet construction + 90 days of MGNREGA wages.",
+        "documents": [
+          "MGNREGA Job Card",
+          "Aadhaar Card",
+          "Bank Account linked to Aadhaar",
+          "Income Certificate",
+          "Land documents"
+        ]
       },
       {
         "id": "gov_meg_003",
         "title": "FOCUS+ (Livelihood)",
-        "description": "Direct financial grants to Producer Groups and individual farmers to scale up agricultural and allied activities."
+        "description": "Support for farmers' producer groups to upscale production and marketing.",
+        "eligibility": "Small and marginal farmers; must be part of a registered Producer Group (PG).",
+        "benefits": "Direct cash transfer of ₹5,000 per individual farmer to boost agricultural activity.",
+        "documents": [
+          "FOCUS+ Card",
+          "Aadhaar Card",
+          "Bank Passbook",
+          "Producer Group Membership details"
+        ]
       },
       {
         "id": "gov_meg_004",
         "title": "MGNREGA (Meghalaya)",
-        "description": "A flagship program guaranteeing 100 days of wage employment per financial year to every rural household."
+        "description": "Guaranteed unskilled wage employment for rural households.",
+        "eligibility": "Adult members (18+) of rural households willing to do unskilled manual labor.",
+        "benefits": "Guaranteed 100 days of work; unemployment allowance if work is not provided within 15 days.",
+        "documents": [
+          "Job Card",
+          "Aadhaar Card",
+          "Bank Account Details",
+          "Recent Passport Photo"
+        ]
       }
     ]
   }

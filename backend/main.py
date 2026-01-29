@@ -15,6 +15,7 @@ app.add_middleware(
 app.include_router(schemes_router, prefix="/api")
 app.include_router(chat_router, prefix="/api")
 
+
 @app.get("/")
 def root():
     return {"project": "NEGen", "status": "running", "docs": "/docs"}
