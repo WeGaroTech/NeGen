@@ -114,3 +114,30 @@ uvicorn main:app --reload
 ```
 
 ---
+
+---
+
+## Ollama Setup (For Scheme-Based Chat)
+
+NEGen uses **Ollama** for local LLM-based reasoning in scheme-specific chats.
+
+### Install Ollama
+Download and install Ollama from:
+https://ollama.com
+
+### Pull the required model
+```bash
+ollama pull llama3.2:3b
+```
+
+The Ollama model can be changed in:
+
+```text
+backend/config/settings.py
+```
+
+Example:
+
+```python
+OLLAMA_MODEL = "llama3.2:3b"
+```
