@@ -1,9 +1,9 @@
-# NEGen – Scheme-based AI Assistant for Northeast India
+# NEGen – Regional Language AI Assistant for Northeast India
 
 ## What is NEGen?
 
 NEGen is an AI-powered assistant designed to help users discover and understand **government, education, and health schemes** in Northeast India.  
-The platform also provides a **general AI chat** experience in a regional language (Garo – A·chik), making information more accessible to local users.
+The platform also provides a **general AI chat** experience in a regional language, making information more accessible to local users.
 
 The system separates **general conversation** and **scheme-based chat** to ensure accurate, reliable, and context-aware responses.
 
@@ -15,7 +15,7 @@ The system separates **general conversation** and **scheme-based chat** to ensur
   - Government welfare schemes
   - Education and scholarship schemes
   - Health and medical assistance schemes
-- General AI chat in regional language (Garo – A·chik)
+- General AI chat in regional language
 - JSON-based scheme filtering to reduce hallucinations
 - AI-powered reasoning and language understanding
 - FastAPI-based backend with clear API structure
@@ -115,8 +115,6 @@ uvicorn main:app --reload
 
 ---
 
----
-
 ## Ollama Setup (For Scheme-Based Chat)
 
 NEGen uses **Ollama** for local LLM-based reasoning in scheme-specific chats.
@@ -125,10 +123,14 @@ NEGen uses **Ollama** for local LLM-based reasoning in scheme-specific chats.
 Download and install Ollama from:
 https://ollama.com
 
+---
+
 ### Pull the required model
 ```bash
 ollama pull llama3.2:3b
 ```
+
+---
 
 The Ollama model can be changed in:
 
