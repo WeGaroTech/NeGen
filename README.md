@@ -43,6 +43,26 @@ The system separates **general conversation** and **scheme-based chat** to ensur
 
 ---
 
+## API Endpoints
+
+### GET /api/schemes
+Fetches available schemes based on selected state and domain.
+
+**Query Parameters:**
+- `mode` – Scheme category (`government`, `education`, `health`)
+- `state` – State name (e.g., `meghalaya`)
+
+---
+
+### POST /api/chat
+Handles both general chat and scheme-based chat.
+
+- Used for:
+  - General conversational queries (Ask NEGen)
+  - Scheme-specific questions after selecting a scheme
+
+---
+
 ## How to Run the Project (Backend)
 
 Follow the steps below to run the backend locally.
