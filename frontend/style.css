@@ -507,9 +507,8 @@ body {
     }
 }
 
-/* ============================================ */
-/* RESPONSIVE DESIGN FOR MOBILE - FIXED */
-/* ============================================ */
+/* RESPONSIVE DESIGN FOR MOBILE */
+
 
 @media (max-width: 768px) {
     /* Header */
