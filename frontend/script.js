@@ -1,16 +1,14 @@
-// ============================================
+
 // CONFIGURATION
-// ============================================
-// const API_BASE_URL = 'http://localhost:8000';
-const API_BASE_URL = 'https://roy-cantharidal-idalia.ngrok-free.dev'; 
+const API_BASE_URL = 'http://localhost:8000';
+ 
 const API_ENDPOINTS = {
     getSchemes: '/api/schemes',
     sendMessage: '/api/chat'
 };
 
-// ============================================
+
 // STATE MANAGEMENT
-// ============================================
 const state = {
     currentMode: null,
     currentState: null,
@@ -20,9 +18,8 @@ const state = {
     isLoading: false  // NEW: Track loading state
 };
 
-// ============================================
+
 // MODE SELECTION
-// ============================================
 function selectMode(mode) {
     state.currentMode = mode;
     document.getElementById('modeSelection').style.display = 'none';
@@ -36,9 +33,8 @@ function selectMode(mode) {
     }
 }
 
-// ============================================
+
 // STATE SELECTION (Loads schemes from backend)
-// ============================================
 async function handleStateSelect(mode) {
     let stateSelectId, schemeListId;
 
@@ -62,16 +58,8 @@ async function handleStateSelect(mode) {
         schemeList.classList.add('active');
 
         try {
-            //const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.getSchemes}?mode=${mode}&state=${stateValue}`);
-            const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.getSchemes}?mode=${mode}&state=${stateValue}`,
-                {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "ngrok-skip-browser-warning": "true"
-                    }
-                }
-            );
+            const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.getSchemes}?mode=${mode}&state=${stateValue}`);
+            
             const schemes = await response.json();
 
             schemeList.innerHTML = '';
@@ -96,9 +84,8 @@ async function handleStateSelect(mode) {
     }
 }
 
-// ============================================
+
 // START CHAT SESSION
-// ============================================
 function startChat(mode, chatType, context, schemeId = null, stateValue = null) {
     state.currentMode = mode;
     state.chatType = chatType;
@@ -122,9 +109,9 @@ function startChat(mode, chatType, context, schemeId = null, stateValue = null) 
     }
 }
 
-// ============================================
+
 // GO BACK / RESET
-// ============================================
+
 function goBack() {
     document.getElementById('chatInterface').classList.remove('active');
     document.getElementById('governmentSelection').classList.remove('active');
@@ -148,9 +135,9 @@ function goBack() {
     state.isLoading = false;
 }
 
-// ============================================
+
 // ADD MESSAGE TO CHAT (WITH MARKDOWN SUPPORT)
-// ============================================
+
 function addMessage(sender, text) {
     const messagesDiv = document.getElementById('chatMessages');
     const messageDiv = document.createElement('div');
@@ -171,9 +158,8 @@ function addMessage(sender, text) {
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
-// ============================================
 // ADD LOADING MESSAGE
-// ============================================
+
 function addLoadingMessage() {
     const messagesDiv = document.getElementById('chatMessages');
     const loadingDiv = document.createElement('div');
@@ -190,9 +176,9 @@ function addLoadingMessage() {
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
-// ============================================
+
 // REMOVE LOADING MESSAGE
-// ============================================
+
 function removeLoadingMessage() {
     const loadingMsg = document.getElementById('loading-message');
     if (loadingMsg) {
@@ -200,9 +186,9 @@ function removeLoadingMessage() {
     }
 }
 
-// ============================================
+
 // TOGGLE SEND BUTTON STATE
-// ============================================
+
 function toggleSendButton(disabled) {
     const sendButton = document.querySelector('.input-container button');
     const input = document.getElementById('messageInput');
@@ -211,9 +197,9 @@ function toggleSendButton(disabled) {
     input.disabled = disabled;
 }
 
-// ============================================
+
 // SEND MESSAGE
-// ============================================
+
 function sendMessage() {
     // Prevent sending if already loading
     if (state.isLoading) return;
@@ -236,9 +222,9 @@ function sendMessage() {
     sendMessageToBackend(message);
 }
 
-// ============================================
+
 // BACKEND INTEGRATION
-// ============================================
+
 async function sendMessageToBackend(userMessage) {
     try {
         let payload;
@@ -264,8 +250,7 @@ async function sendMessageToBackend(userMessage) {
         const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.sendMessage}`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                "ngrok-skip-browser-warning": "true"
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(payload)
         });
@@ -287,9 +272,7 @@ async function sendMessageToBackend(userMessage) {
     }
 }
 
-// ============================================
 // HANDLE ENTER KEY
-// ============================================
 function handleKeyPress(event) {
     if (event.key === 'Enter' && !state.isLoading) {
         sendMessage();
