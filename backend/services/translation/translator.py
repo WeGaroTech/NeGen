@@ -1,10 +1,12 @@
 from google import genai
 
+# importing API key and model configs
 from config.settings import GEMINI_KEY, GEMINI_MODEL
 from services.translation.base import BaseTranslator
 
 client = genai.Client(api_key=GEMINI_KEY)
 
+# system prompt for Garo to English translation
 GARO_TO_ENGLISH_SYSTEM_INSTRUCTION = """ You are an expert translator specializing in translating Garo (A·chik) to English.
 
 CRITICAL RULES:
@@ -27,6 +29,7 @@ TRANSLATION APPROACH:
 
 OUTPUT: Return ONLY the English translation."""
 
+# system prompt for English to Garo translation
 ENGLISH_TO_GARO_SYSTEM_INSTRUCTION = """You are an expert translator specializing in translating English to Garo (A·chik).
 
 CRITICAL RULES:
@@ -57,9 +60,10 @@ ORTHOGRAPHY:
 OUTPUT: Return ONLY the Garo (A·chik) translation."""
 
 
+# translator service using gemini
 class geminiTranslator(BaseTranslator):
     # function to translate text to english
-    def translate_to_english(self, text: str) -> str:
+    def translate_to_english(self, text: str):
         response = client.models.generate_content(
             model=GEMINI_MODEL,
             config={"system_instruction": GARO_TO_ENGLISH_SYSTEM_INSTRUCTION},
@@ -68,7 +72,7 @@ class geminiTranslator(BaseTranslator):
         return response.text
 
     # function to translate text to local language
-    def translate_to_local(self, text: str) -> str:
+    def translate_to_local(self, text: str):
         response = client.models.generate_content(
             model=GEMINI_MODEL,
             config={"system_instruction": ENGLISH_TO_GARO_SYSTEM_INSTRUCTION},

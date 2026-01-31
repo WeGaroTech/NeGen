@@ -15,7 +15,7 @@ const state = {
     chatType: null,
     currentContext: null,
     currentSchemeId: null,
-    isLoading: false  // NEW: Track loading state
+    isLoading: false  
 };
 
 

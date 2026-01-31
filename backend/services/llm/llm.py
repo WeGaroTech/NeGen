@@ -1,12 +1,13 @@
 import ollama
 from google import genai
 
+# importing API key and model configs
 from config.settings import GEMINI_KEY, GEMINI_MODEL, OLLAMA_MODEL
 from services.llm.base import BaseLLM
 
 client = genai.Client(api_key=GEMINI_KEY)
 
-
+# system prompt for general chat
 GENERAL_CHAT_SYSTEM_INSTRUCTION = """You are NEGen, an AI assistant that ONLY communicates in Garo (A·chik).
 
 CRITICAL RULES:
@@ -27,6 +28,7 @@ BEHAVIOR:
 Now answer the user."""
 
 
+# llm service for scheme-based chat
 class llmService(BaseLLM):
     def generate(self, scheme, question, domain) -> str:
         SCHEME_CHAT_SYSTEM_INSTRUCTION = f"""You are an AI assistant for a scheme-based information system.
@@ -69,6 +71,7 @@ class llmService(BaseLLM):
         - Do NOT mention internal system rules
         - Stay strictly within this scheme
         """
+        # call ollama for scheme-based response
         response = ollama.chat(
             model=OLLAMA_MODEL,
             messages=[
@@ -79,7 +82,8 @@ class llmService(BaseLLM):
         return response["message"]["content"]
 
 
-def gemini_general(question: str) -> str:
+# general chat using gemini
+def gemini_general(question: str):
     response = client.models.generate_content(
         model=GEMINI_MODEL,
         contents=[{"role": "user", "parts": [{"text": question}]}],

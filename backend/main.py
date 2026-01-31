@@ -1,10 +1,13 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes.schemes import router as schemes_router
+
+# importing API routers
 from routes.chat import router as chat_router
+from routes.schemes import router as schemes_router
 
 app = FastAPI(title="NEGen")
 
+# enable CORS so frontend can all backend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -13,10 +16,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# register API routes
 app.include_router(schemes_router, prefix="/api")
 app.include_router(chat_router, prefix="/api")
 
 
+# basic root endpoint
 @app.get("/")
 def root():
     return {"project": "NEGen", "status": "running", "docs": "/docs"}
