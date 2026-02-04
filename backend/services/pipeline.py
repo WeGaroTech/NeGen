@@ -58,7 +58,7 @@ async def scheme_chat(payload):
     # translating answer from english language to local
     answer = await asyncio.to_thread(translator.translate_to_local, answer)
 
-    return {"answer": f"{answer}"}
+    return {"answer": answer}
 
 
 # function to handle general chat
@@ -67,4 +67,4 @@ async def general_chat(payload):
 
     # call gemini for general chat
     answer = await asyncio.to_thread(gemini_general, question)
-    return {"answer": f"{answer}"}
+    return {"answer": answer}
