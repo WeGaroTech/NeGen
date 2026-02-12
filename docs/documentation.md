@@ -60,6 +60,9 @@ Users can chat in regional language for:
 - Python
 - FastAPI
 - Uvicorn
+
+> Note: FastAPI internally uses Pydantic for request validation.
+
 ### Frontend
 - HTML
 - CSS
