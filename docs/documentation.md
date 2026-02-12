@@ -4,7 +4,7 @@
 The platform also provides a **general AI chat** experience in a regional language, making information more accessible to local users.
 
 **NEGen** allows users to interact through a simple chat in their **regional language**, making information accessible and easier to understand.
-![[images/negen.png|250]]
+![NEGen Logo] (images/negen.png)
 The goal is to simplify access to public information for people who struggle with complex government portals and language barriers.
 
 **NEGen** allows users to:
@@ -51,7 +51,7 @@ Users can chat in regional language for:
 ---
 ## Architecture Overview
 
-![[images/diagram.jpg]]
+![Architecture] (images/diagram.jpg)
 
 ---
 ## Tech Stack
