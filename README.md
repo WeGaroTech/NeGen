@@ -28,9 +28,6 @@ The system separates **general conversation** and **scheme-based chat** to ensur
 ### Backend
 - Python
 - FastAPI
-- Uvicorn (ASGI server)
-
-> Note: FastAPI internally uses Pydantic for request validation.
 
 ### Frontend
 - HTML
