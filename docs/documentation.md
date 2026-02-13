@@ -383,7 +383,7 @@ Follow the steps below to run the backend locally.
 #### Step 1: Clone the repository
 
 ```bash
-git clone https://github.com/WeGaroTech/NeGen
+git clone https://github.com/Blairex/NeGen
 cd NEGen
 ```
 
