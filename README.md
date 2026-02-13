@@ -1,5 +1,11 @@
 # NEGen – Regional Language AI Assistant for Northeast India
 
+![Status](https://img.shields.io/badge/Status-Active%20Development-orange)
+![Backend](https://img.shields.io/badge/Backend-FastAPI-green)
+![Frontend](https://img.shields.io/badge/Frontend-HTML%2FCSS%2FJS-blue)
+![LLM](https://img.shields.io/badge/LLM-Ollama%20%2B%20Gemini-purple)
+![License](https://img.shields.io/badge/License-Apache%202.0-blue)
+
 NEGen is an AI assistant that helps users discover and understand government, education, and health schemes in Northeast India while also providing general AI chat in regional languages.
 
 ---
