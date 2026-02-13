@@ -267,7 +267,7 @@ from fastapi import APIRouter, HTTPException, Query
 router = APIRouter()
 
 
-# fucntion to load data from schemes.json
+# function to load data from schemes.json
 def load_data():
     with open("data/schemes.json", "r") as f:
         return json.load(f)
