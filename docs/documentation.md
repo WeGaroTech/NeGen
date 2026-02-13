@@ -108,7 +108,7 @@ The frontend communicates with the backend using JSON payloads sent to the `/api
   "domain": "government",
   "state": "meghalaya",
   "scheme_id": "SCH001",
-  "question": "What benefits does this scheme provide?"
+  "question": "Maidake anga apply kagen?"
 }
 ```
 ### Example: General Chat Payload
@@ -117,7 +117,7 @@ The frontend communicates with the backend using JSON payloads sent to the `/api
 {
   "chat_type": "general_chat",
   "language": "garo",
-  "question": "How are you?"
+  "question": "Namengama?"
 }
 ```
 ### Payload Fields
