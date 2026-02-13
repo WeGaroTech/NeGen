@@ -1,40 +1,65 @@
-
 // CONFIGURATION
 const API_BASE_URL = 'http://localhost:8000';
- 
+
 const API_ENDPOINTS = {
     getSchemes: '/api/schemes',
     sendMessage: '/api/chat'
 };
 
-
 // STATE MANAGEMENT
 const state = {
-    currentMode: null,
-    currentState: null,
-    chatType: null,
-    currentContext: null,
-    currentSchemeId: null,
-    isLoading: false  
+    currentMode: null,       // 'government', 'education', 'health', or null
+    currentState: null,      // Selected state (e.g., 'meghalaya')
+    chatType: null,          // 'general_chat' or 'scheme_chat'
+    currentContext: null,    // Display name
+    currentSchemeId: null,   // Scheme ID
+    selectedLanguage: null,  // NEW: Selected language ('en' or 'garo')
+    isLoading: false
 };
 
+// SELECT GENERAL CHAT (Shows language selection)
+function selectGeneralChat() {
+    state.chatType = 'general_chat';
+    state.currentMode = null;
+    
+    document.getElementById('modeSelection').style.display = 'none';
+    document.getElementById('generalChatLanguageSelection').classList.add('active');
+}
 
-// MODE SELECTION
+// START GENERAL CHAT WITH SELECTED LANGUAGE
+function startGeneralChatWithLanguage(language) {
+    state.selectedLanguage = language;
+    
+    document.getElementById('generalChatLanguageSelection').classList.remove('active');
+    startChat(null, 'general_chat', 'Ask NEGen', null, null);
+}
+
+// MODE SELECTION (Shows language selection for scheme chat)
 function selectMode(mode) {
     state.currentMode = mode;
+    state.chatType = 'scheme_chat';
+    
     document.getElementById('modeSelection').style.display = 'none';
+    document.getElementById('schemeChatLanguageSelection').classList.add('active');
+}
 
-    if (mode === 'government') {
+// PROCEED TO SCHEME SELECTION AFTER LANGUAGE CHOICE
+function proceedToSchemeSelection(language) {
+    state.selectedLanguage = language;
+    
+    document.getElementById('schemeChatLanguageSelection').classList.remove('active');
+    
+    // Show the appropriate mode selection
+    if (state.currentMode === 'government') {
         document.getElementById('governmentSelection').classList.add('active');
-    } else if (mode === 'education') {
+    } else if (state.currentMode === 'education') {
         document.getElementById('educationSelection').classList.add('active');
-    } else if (mode === 'health') {
+    } else if (state.currentMode === 'health') {
         document.getElementById('healthSelection').classList.add('active');
     }
 }
 
-
-// STATE SELECTION (Loads schemes from backend)
+// STATE SELECTION (Load schemes from backend)
 async function handleStateSelect(mode) {
     let stateSelectId, schemeListId;
 
@@ -59,7 +84,6 @@ async function handleStateSelect(mode) {
 
         try {
             const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.getSchemes}?mode=${mode}&state=${stateValue}`);
-            
             const schemes = await response.json();
 
             schemeList.innerHTML = '';
@@ -84,7 +108,6 @@ async function handleStateSelect(mode) {
     }
 }
 
-
 // START CHAT SESSION
 function startChat(mode, chatType, context, schemeId = null, stateValue = null) {
     state.currentMode = mode;
@@ -93,25 +116,61 @@ function startChat(mode, chatType, context, schemeId = null, stateValue = null) 
     state.currentSchemeId = schemeId;
     state.currentState = stateValue;
 
+    // Hide all screens
     document.getElementById('modeSelection').style.display = 'none';
+    document.getElementById('generalChatLanguageSelection').classList.remove('active');
+    document.getElementById('schemeChatLanguageSelection').classList.remove('active');
     document.getElementById('governmentSelection').classList.remove('active');
     document.getElementById('educationSelection').classList.remove('active');
     document.getElementById('healthSelection').classList.remove('active');
 
+    // Show chat
     document.getElementById('chatInterface').classList.add('active');
     document.getElementById('chatTitle').textContent = context;
     document.getElementById('chatMessages').innerHTML = '';
 
-
+    // Welcome message for scheme chat
     if (chatType === 'scheme_chat') {
         const welcomeMsg = `How can I help you with the ${context}?`;
         addMessage('ai', welcomeMsg);
     }
 }
 
+// GO BACK TO HOME
+function goBackToHome() {
+    // Hide all screens
+    document.getElementById('generalChatLanguageSelection').classList.remove('active');
+    document.getElementById('schemeChatLanguageSelection').classList.remove('active');
+    document.getElementById('governmentSelection').classList.remove('active');
+    document.getElementById('educationSelection').classList.remove('active');
+    document.getElementById('healthSelection').classList.remove('active');
+    
+    // Show home
+    document.getElementById('modeSelection').style.display = 'flex';
+    
+    // Reset state
+    state.currentMode = null;
+    state.chatType = null;
+    state.selectedLanguage = null;
+}
+
+// GO BACK TO LANGUAGE SELECTION
+function goBackToLanguage() {
+    // Hide scheme selections
+    document.getElementById('governmentSelection').classList.remove('active');
+    document.getElementById('educationSelection').classList.remove('active');
+    document.getElementById('healthSelection').classList.remove('active');
+    
+    // Reset dropdowns
+    document.getElementById('govStateSelect').value = '';
+    document.getElementById('eduStateSelect').value = '';
+    document.getElementById('healthStateSelect').value = '';
+    
+    // Show language selection
+    document.getElementById('schemeChatLanguageSelection').classList.add('active');
+}
 
 // GO BACK / RESET
-
 function goBack() {
     document.getElementById('chatInterface').classList.remove('active');
     document.getElementById('governmentSelection').classList.remove('active');
@@ -132,12 +191,11 @@ function goBack() {
     state.chatType = null;
     state.currentContext = null;
     state.currentSchemeId = null;
+    state.selectedLanguage = null;
     state.isLoading = false;
 }
 
-
 // ADD MESSAGE TO CHAT (WITH MARKDOWN SUPPORT)
-
 function addMessage(sender, text) {
     const messagesDiv = document.getElementById('chatMessages');
     const messageDiv = document.createElement('div');
@@ -159,7 +217,6 @@ function addMessage(sender, text) {
 }
 
 // ADD LOADING MESSAGE
-
 function addLoadingMessage() {
     const messagesDiv = document.getElementById('chatMessages');
     const loadingDiv = document.createElement('div');
@@ -176,9 +233,7 @@ function addLoadingMessage() {
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
-
 // REMOVE LOADING MESSAGE
-
 function removeLoadingMessage() {
     const loadingMsg = document.getElementById('loading-message');
     if (loadingMsg) {
@@ -186,9 +241,7 @@ function removeLoadingMessage() {
     }
 }
 
-
 // TOGGLE SEND BUTTON STATE
-
 function toggleSendButton(disabled) {
     const sendButton = document.querySelector('.input-container button');
     const input = document.getElementById('messageInput');
@@ -197,11 +250,8 @@ function toggleSendButton(disabled) {
     input.disabled = disabled;
 }
 
-
 // SEND MESSAGE
-
 function sendMessage() {
-    // Prevent sending if already loading
     if (state.isLoading) return;
 
     const input = document.getElementById('messageInput');
@@ -209,33 +259,29 @@ function sendMessage() {
 
     if (!message) return;
 
-    // Add user message
     addMessage('user', message);
     input.value = '';
 
-    // Set loading state
     state.isLoading = true;
     toggleSendButton(true);
     addLoadingMessage();
 
-    // Send to backend
     sendMessageToBackend(message);
 }
 
-
-// BACKEND INTEGRATION
-
+// BACKEND INTEGRATION (NOW INCLUDES LANGUAGE)
 async function sendMessageToBackend(userMessage) {
     try {
         let payload;
 
-        if (state.chatType === 'general_chat' && state.currentMode === null) {
+        if (state.chatType === 'general_chat') {
             payload = {
                 chat_type: 'general_chat',
                 domain: null,
                 question: userMessage,
                 state: null,
-                scheme_id: null
+                scheme_id: null,
+                language: state.selectedLanguage   
             };
         } else if (state.chatType === 'scheme_chat') {
             payload = {
@@ -243,7 +289,8 @@ async function sendMessageToBackend(userMessage) {
                 domain: state.currentMode,
                 question: userMessage,
                 state: state.currentState,
-                scheme_id: state.currentSchemeId
+                scheme_id: state.currentSchemeId,
+                language: state.selectedLanguage  
             };
         }
 
@@ -257,7 +304,6 @@ async function sendMessageToBackend(userMessage) {
 
         const data = await response.json();
 
-        // Remove loading, add response
         removeLoadingMessage();
         addMessage('ai', data.answer || data.response);
 
@@ -266,7 +312,6 @@ async function sendMessageToBackend(userMessage) {
         removeLoadingMessage();
         addMessage('ai', 'Sorry, something went wrong. Please try again.');
     } finally {
-        // Re-enable send button
         state.isLoading = false;
         toggleSendButton(false);
     }

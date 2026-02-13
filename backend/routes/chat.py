@@ -15,6 +15,7 @@ class chatPayload(BaseModel):
     question: str
     state: Optional[str] = None
     scheme_id: Optional[str] = None
+    language:str
 
 
 router = APIRouter()

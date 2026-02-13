@@ -7,7 +7,6 @@
   <title>NEGen - North-East Generative AI</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css" rel="stylesheet" />
-  <!-- Marked.js for Markdown rendering -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
@@ -24,9 +23,8 @@
     <div class="mode-selection" id="modeSelection">
       <h1>Welcome to NEGen</h1>
 
-      <!-- General Chat Option - On Homepage -->
       <div class="general-chat-home">
-        <div class="general-chat-card" onclick="startChat(null, 'general_chat', 'Ask NEGen', null, null)">
+        <div class="general-chat-card" onclick="selectGeneralChat()">
           <div class="chat-icon"><i class="ri-chat-3-line"></i></div>
           <h3>Ask NEGen Anything</h3>
           <p>Chat freely in your regional language - ask anything and get instant help.</p>
@@ -54,9 +52,37 @@
       </div>
     </div>
 
+    <!-- Language Selection for General Chat -->
+<div class="sub-selection" id="generalChatLanguageSelection">
+  <button class="back-btn" onclick="goBackToHome()">← Back to Home</button>
+  <div class="language-selection-container">
+    <h2>Select Your Language</h2>
+    <div class="language-buttons">
+      <button class="language-btn" onclick="startGeneralChatWithLanguage('garo')">
+        <i class="ri-translate"></i>
+        Garo
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Language Selection for Scheme Chat -->
+<div class="sub-selection" id="schemeChatLanguageSelection">
+  <button class="back-btn" onclick="goBackToHome()">← Back to Home</button>
+  <div class="language-selection-container">
+    <h2>Select Your Language</h2>
+    <div class="language-buttons">
+      <button class="language-btn" onclick="proceedToSchemeSelection('garo')">
+        <i class="ri-translate"></i>
+        Garo
+      </button>
+    </div>
+  </div>
+</div>
+
     <!-- Government Sub-Selection -->
     <div class="sub-selection" id="governmentSelection">
-      <button class="back-btn" onclick="goBack()">← Back to Home</button>
+      <button class="back-btn" onclick="goBackToLanguage()">← Back</button>
       <h2>Government Schemes</h2>
 
       <div class="selection-box">
@@ -66,14 +92,12 @@
           <option value="meghalaya">Meghalaya</option>
         </select>
       </div>
-      <div class="scheme-list" id="govSchemeList">
-        <!-- Government schemes will be loaded here dynamically after state selection -->
-      </div>
+      <div class="scheme-list" id="govSchemeList"></div>
     </div>
 
     <!-- Education Sub-Selection -->
     <div class="sub-selection" id="educationSelection">
-      <button class="back-btn" onclick="goBack()">← Back to Home</button>
+      <button class="back-btn" onclick="goBackToLanguage()">← Back</button>
       <h2>Education</h2>
 
       <div class="selection-box">
@@ -83,14 +107,12 @@
           <option value="meghalaya">Meghalaya</option>
         </select>
       </div>
-      <div class="scheme-list" id="eduSchemeList">
-        <!-- Education schemes will be loaded here dynamically -->
-      </div>
+      <div class="scheme-list" id="eduSchemeList"></div>
     </div>
 
     <!-- Health Sub-Selection -->
     <div class="sub-selection" id="healthSelection">
-      <button class="back-btn" onclick="goBack()">← Back to Home</button>
+      <button class="back-btn" onclick="goBackToLanguage()">← Back</button>
       <h2>Health</h2>
 
       <div class="selection-box">
@@ -100,9 +122,7 @@
           <option value="meghalaya">Meghalaya</option>
         </select>
       </div>
-      <div class="scheme-list" id="healthSchemeList">
-        <!-- Health schemes will be loaded here dynamically -->
-      </div>
+      <div class="scheme-list" id="healthSchemeList"></div>
     </div>
 
     <!-- Chat Interface -->

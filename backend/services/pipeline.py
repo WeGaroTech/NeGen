@@ -4,10 +4,9 @@ import json
 # importing llm and translation helpers
 from services.llm.llm import gemini_general
 from services.llm.registry import get_llm
-from services.translation.registry import get_translator
+from services.languages.registry import get_translator
 
-# creating translator and llm instance
-translator = get_translator()
+# creating llm instance
 llm = get_llm()
 
 
@@ -43,7 +42,9 @@ async def scheme_chat(payload):
     scheme_id = payload.scheme_id
     state = payload.state.strip().lower()
     question = payload.question
+    language=payload.language
 
+    translator = get_translator(language)
     # translating question from local language to english
     question = await asyncio.to_thread(translator.translate_to_english, question)
 
@@ -64,7 +65,8 @@ async def scheme_chat(payload):
 # function to handle general chat
 async def general_chat(payload):
     question = payload.question
+    language=payload.language
 
     # call gemini for general chat
-    answer = await asyncio.to_thread(gemini_general, question)
+    answer = await asyncio.to_thread(gemini_general, question,language)
     return {"answer": answer}

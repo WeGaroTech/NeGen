@@ -507,6 +507,62 @@ body {
     }
 }
 
+/* Language Selection */
+.language-selection-container {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.language-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.language-btn {
+    background: white;
+    border: 2px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 16px 32px;
+    min-width: 140px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    font-weight: 500;
+    color: #202123;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.language-btn:hover {
+    border-color: #10a37f;
+    background: #f0fdf4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 163, 127, 0.15);
+}
+
+.language-btn i {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 8px;
+    color: #10a37f;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .language-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .language-btn {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
 /* RESPONSIVE DESIGN FOR MOBILE */
 
 

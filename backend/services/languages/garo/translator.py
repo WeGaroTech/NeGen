@@ -2,7 +2,7 @@ from google import genai
 
 # importing API key and model configs
 from config.settings import GEMINI_KEY, GEMINI_MODEL
-from services.translation.base import BaseTranslator
+from services.languages.base import BaseTranslator
 
 client = genai.Client(api_key=GEMINI_KEY)
 
@@ -61,7 +61,7 @@ OUTPUT: Return ONLY the Garo (A·chik) translation."""
 
 
 # translator service using gemini
-class geminiTranslator(BaseTranslator):
+class garoTranslator(BaseTranslator):
     # function to translate text to english
     def translate_to_english(self, text: str):
         response = client.models.generate_content(
