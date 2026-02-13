@@ -1,5 +1,5 @@
 # What is NEGen?
-**NEGen** is an AI-powered Assistant designed specificically for **Northeast India**, designed to help users discover and understand **government, education, and health schemes**.
+**NEGen** is an AI-powered Assistant designed specifically for **Northeast India**, designed to help users discover and understand **government, education, and health schemes**.
 
 The platform also provides a **general AI chat** experience in a regional language, making information more accessible to local users.
 
