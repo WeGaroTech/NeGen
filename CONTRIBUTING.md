@@ -157,7 +157,7 @@ Please be respectful and constructive in discussions.
 
 ## Maintainer Note
 
-NEGen is currently maintained by **Blairex**.  
+NEGen is currently maintained by **Blairex & Cheang**.  
 Pull requests and contributions are reviewed before merging to maintain project quality.
 
 ---
