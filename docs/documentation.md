@@ -348,9 +348,11 @@ async def get_schemes(
 
 **Problem:** 
 - Slow responses
+
 **Cause:**
 - Multiple API calls
 - Translation layers
+
 **Fix ideas:**
 - Use caching
 - Session memory
