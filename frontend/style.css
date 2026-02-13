@@ -550,7 +550,6 @@ body {
     color: #10a37f;
 }
 
-/* Mobile responsive */
 @media (max-width: 768px) {
     .language-buttons {
         flex-direction: column;

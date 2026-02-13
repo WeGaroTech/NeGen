@@ -44,6 +44,7 @@ async def scheme_chat(payload):
     question = payload.question
     language=payload.language
 
+    # translator instance
     translator = get_translator(language)
     # translating question from local language to english
     question = await asyncio.to_thread(translator.translate_to_english, question)
