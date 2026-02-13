@@ -372,7 +372,7 @@ async def get_schemes(
 ```
 
 ---
-## Setup & Installation
+## Setup and Installation
 
 ### Backend Setup
 
