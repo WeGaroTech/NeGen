@@ -61,7 +61,7 @@ OUTPUT: Return ONLY the Garo (A·chik) translation."""
 
 
 # translator service using gemini
-class garoTranslator(BaseTranslator):
+class GaroTranslator(BaseTranslator):
     # function to translate text to english
     def translate_to_english(self, text: str):
         response = client.models.generate_content(
