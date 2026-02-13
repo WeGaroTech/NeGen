@@ -95,6 +95,48 @@ Handles both general chat and scheme-based chat.
   - Scheme-specific questions after selecting a scheme
 
 ---
+## Chat Payload Structure
+
+The frontend communicates with the backend using JSON payloads sent to the `/api/chat` endpoint.
+
+### Example: Scheme Chat Payload
+
+```json
+{
+  "chat_type": "scheme_chat",
+  "language": "garo",
+  "domain": "government",
+  "state": "meghalaya",
+  "scheme_id": "SCH001",
+  "question": "What benefits does this scheme provide?"
+}
+```
+### Example: General Chat Payload
+
+```json
+{
+  "chat_type": "general_chat",
+  "language": "garo",
+  "question": "How are you?"
+}
+```
+### Payload Fields
+
+| Field | Description |
+|-------|-------------|
+| chat_type | Type of chat: general_chat or scheme_chat |
+| language | Selected regional language |
+| domain | Scheme category (government, education, health) |
+| state | Selected state name |
+| scheme_id | Selected scheme identifier |
+| question | User query message |
+
+### Notes
+- domain, state, and scheme_id are required only for scheme_chat.
+- general_chat only requires chat_type, language, and question.
+- Language selection determines which translation module is used.
+
+---
 ## ⚙ Pipeline Logic
 
 ### 1. Scheme Chat Steps
