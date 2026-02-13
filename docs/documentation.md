@@ -400,10 +400,11 @@ async def get_schemes(
 │   │   │   ├── base.py
 │   │   │   ├── llm.py
 │   │   │   └── registry.py
-│   │   ├── translation/
+│   │   ├── languages/
 │   │   │   ├── base.py
 │   │   │   ├── registry.py
-│   │   │   └── translator.py
+│   │   │   └── garo/
+│   │   │       └── translator.py
 │   │   └── pipeline.py
 │   ├── main.py
 │   └── requirements.txt
