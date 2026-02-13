@@ -15,6 +15,8 @@ The goal is to simplify access to public information for people who struggle wit
 
 The system separates **general conversation** and **scheme-based chat** to ensure accurate, reliable, and context-aware responses.
 
+> Note: NEGen is currently a prototype system and under active development.
+
 ---
 ## Problem Statement
 Accessing government schemes and reliable information remains difficult for many citizens in **Northeast India** due to:
