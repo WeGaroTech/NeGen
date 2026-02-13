@@ -28,4 +28,4 @@ POST /api/chat
 
 ## Installation
 See detailed setup here:
-[Full Setup Guide](docs/documentation.md#setup--installation)
+[Full Setup Guide](docs/documentation.md#setup-and-installation)
